@@ -2,74 +2,282 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Fatihs Mini App Dashboard</title>
+  <title>Fatihs App Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --card2: #050816;
+      --border: #1f2937;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59,130,246,0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --badge-bg: #0f172a;
+      --radius-xl: 18px;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.65);
+      --shadow-hover: 0 22px 55px rgba(0,0,0,0.8);
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050816;
-      color: #e5e7eb;
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 45%, #000 100%);
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 30px 10px;
+      padding: 32px 12px 40px;
     }
 
-    .container { width: 100%; max-width: 1100px; }
-    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-    .subtitle { color: #9ca3af; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .shell {
+      width: 100%;
+      max-width: 1180px;
+      background: linear-gradient(145deg, rgba(15,23,42,0.9), rgba(2,6,23,0.96));
+      border-radius: 24px;
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 20px 26px;
+      backdrop-filter: blur(18px);
+    }
 
+    @media (min-width: 768px) {
+      .shell { padding: 26px 28px 30px; }
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(148,163,184,0.25);
+      padding-bottom: 12px;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 1.65rem;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-user {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg);
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34,197,94,0.9);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .quick-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      align-items: center;
+    }
+
+    .chip {
+      padding: 4px 9px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(15,23,42,0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip span:first-child { font-size: 0.9rem; }
+
+    /* Filter-Leiste */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 18px;
+    }
+
+    .filter-btn {
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148,163,184,0.3);
+      background: rgba(15,23,42,0.7);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.12s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      background: rgba(30,64,175,0.7);
+    }
+
+    .filter-btn.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--text-main);
+    }
+
+    .filter-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+    }
+
+    .dot-all { background: #e5e7eb; }
+    .dot-fin { background: #22c55e; }
+    .dot-health { background: #f97316; }
+    .dot-rel { background: #38bdf8; }
+    .dot-auto { background: #a855f7; }
+    .dot-foot { background: #facc15; }
+    .dot-misc { background: #fb7185; }
+
+    /* Grid & Cards */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
     }
 
     .card {
-      background: linear-gradient(135deg, #111827, #020617);
-      border-radius: 14px;
-      padding: 18px;
-      border: 1px solid #1f2937;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+      border-radius: var(--radius-xl);
+      padding: 18px 16px 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: 0.14s ease;
+      position: relative;
+      overflow: hidden;
+      transition: 0.16s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,0.25), transparent 40%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
     }
 
     .card:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-      border-color: #3b82f6;
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(59,130,246,0.8);
     }
 
-    .card-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .card-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #9ca3af;
-      margin-bottom: 0.75rem;
+    .card:hover::before { opacity: 1; }
+
+    .card-tag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
     }
 
-    .card-desc { font-size: 0.85rem; color: #9ca3af; margin-bottom: 1.1rem; min-height: 36px; }
+    .card-tag-pill {
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148,163,184,0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
 
-    .btn-row { display: flex; justify-content: space-between; gap: 8px; margin-top: auto; }
+    .tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .tag-fin { background: #22c55e; }
+    .tag-health { background: #f97316; }
+    .tag-rel { background: #38bdf8; }
+    .tag-auto { background: #a855f7; }
+    .tag-foot { background: #facc15; }
+    .tag-misc { background: #fb7185; }
+
+    .card-emoji {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      min-height: 38px;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+    }
 
     .btn {
       flex: 1;
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      padding: 8px 10px;
-      border-radius: 999px;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: var(--radius-full);
       font-size: 0.8rem;
       border: 1px solid #374151;
       background: #111827;
-      color: #e5e7eb;
+      color: var(--text-main);
       text-decoration: none;
       cursor: pointer;
       transition: 0.12s ease;
@@ -78,148 +286,330 @@
 
     .btn:hover {
       background: #1f2937;
-      border-color: #3b82f6;
+      border-color: var(--accent);
       transform: translateY(-1px);
     }
 
-    .btn-secondary { background: transparent; }
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      border-color: transparent;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8, #4338ca);
+      transform: translateY(-1px) scale(1.01);
+    }
+
+    .btn span:first-child { font-size: 0.9rem; }
 
     .footer {
-      margin-top: 24px;
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid rgba(148,163,184,0.25);
+      padding-top: 10px;
+    }
+
+    .footer code {
+      background: rgba(15,23,42,0.9);
+      padding: 2px 5px;
+      border-radius: 4px;
       font-size: 0.75rem;
-      color: #6b7280;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Fatihs Dashboard</h1>
-    <p class="subtitle">Klick auf eine Kachel, um deine HTML-Apps zu öffnen.</p>
+  <main class="shell">
+    <header class="header">
+      <div class="title-block">
+        <div class="title-row">
+          <h1>Fatihs App-Dashboard</h1>
+          <div class="badge-user">
+            <span class="badge-dot"></span>
+            <span>@nzvdgzygrk-hub</span>
+          </div>
+        </div>
+        <p class="subtitle">
+          Alle deine kleinen HTML-Tools an einem Ort – Finanzen, Gesundheit, Autos & Fußball.
+        </p>
+      </div>
 
-    <div class="grid">
+      <div class="quick-info">
+        <div class="chip">
+          <span>⚡</span><span>Direkter Zugriff auf Apps & Code</span>
+        </div>
+        <div class="chip">
+          <span>📱</span><span>Optimiert für Handy & Desktop</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Filter-Leiste -->
+    <section class="filter-row">
+      <button class="filter-btn active" data-filter="all">
+        <span class="filter-dot dot-all"></span> Alle
+      </button>
+      <button class="filter-btn" data-filter="finanzen">
+        <span class="filter-dot dot-fin"></span> Finanzen
+      </button>
+      <button class="filter-btn" data-filter="gesundheit">
+        <span class="filter-dot dot-health"></span> Gesundheit
+      </button>
+      <button class="filter-btn" data-filter="religion">
+        <span class="filter-dot dot-rel"></span> Religion
+      </button>
+      <button class="filter-btn" data-filter="auto">
+        <span class="filter-dot dot-auto"></span> Auto
+      </button>
+      <button class="filter-btn" data-filter="fussball">
+        <span class="filter-dot dot-foot"></span> Fußball
+      </button>
+      <button class="filter-btn" data-filter="sonstiges">
+        <span class="filter-dot dot-misc"></span> Sonstiges
+      </button>
+    </section>
+
+    <!-- Cards -->
+    <section class="grid">
 
       <!-- Ausgaben -->
-      <div class="card">
+      <article class="card" data-category="finanzen">
         <div>
-          <div class="card-tag">Finanzen</div>
-          <div class="card-title">Ausgaben</div>
-          <div class="card-desc">Einnahmen & Ausgaben Übersicht.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-fin"></span>
+              <span>Finanzen</span>
+            </div>
+            <div class="card-emoji">💶</div>
+          </div>
+          <h2 class="card-title">Ausgaben</h2>
+          <p class="card-desc">Übersicht über Einnahmen & Ausgaben mit kleinen Statistiken.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Ausgaben/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Ausgaben" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Ausgaben/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Ausgaben" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Medikamentenplan-Anne -->
-      <div class="card">
+      <article class="card" data-category="gesundheit">
         <div>
-          <div class="card-tag">Gesundheit</div>
-          <div class="card-title">Medikamentenplan Anne</div>
-          <div class="card-desc">Plan für Medikamente.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-health"></span>
+              <span>Gesundheit</span>
+            </div>
+            <div class="card-emoji">💊</div>
+          </div>
+          <h2 class="card-title">Medikamentenplan Anne</h2>
+          <p class="card-desc">Übersichtlicher Plan mit Zeiten & Dosierungen.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Medikamentenplan-Anne/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Medikamentenplan-Anne" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Medikamentenplan-Anne/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Medikamentenplan-Anne" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Takvim -->
-      <div class="card">
+      <article class="card" data-category="religion">
         <div>
-          <div class="card-tag">Religion</div>
-          <div class="card-title">Takvim</div>
-          <div class="card-desc">Namaz & Ramadan Zeiten.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-rel"></span>
+              <span>Religion</span>
+            </div>
+            <div class="card-emoji">🕌</div>
+          </div>
+          <h2 class="card-title">Takvim</h2>
+          <p class="card-desc">Gebets- und Ramadanzeiten übersichtlich für Velbert.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Takvim/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Takvim" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Takvim/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Takvim" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Fahrzeugmanager -->
-      <div class="card">
+      <article class="card" data-category="auto">
         <div>
-          <div class="card-tag">Auto</div>
-          <div class="card-title">Fahrzeugmanager</div>
-          <div class="card-desc">Alles rund ums Auto.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-auto"></span>
+              <span>Auto</span>
+            </div>
+            <div class="card-emoji">🚗</div>
+          </div>
+          <h2 class="card-title">Fahrzeugmanager</h2>
+          <p class="card-desc">Verwaltung von Fahrzeugdaten, Kosten & Infos.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Fahrzeugmanager-VW -->
-      <div class="card">
+      <article class="card" data-category="auto">
         <div>
-          <div class="card-tag">Auto</div>
-          <div class="card-title">Fahrzeugmanager VW</div>
-          <div class="card-desc">VW-Version.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-auto"></span>
+              <span>Auto</span>
+            </div>
+            <div class="card-emoji">🚙</div>
+          </div>
+          <h2 class="card-title">Fahrzeugmanager VW</h2>
+          <p class="card-desc">Spezielle Variante deines Fahrzeugmanagers für VW.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager-VW/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager-VW" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager-VW/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager-VW" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Klick -->
-      <div class="card">
+      <article class="card" data-category="sonstiges">
         <div>
-          <div class="card-tag">Test</div>
-          <div class="card-title">Klick</div>
-          <div class="card-desc">Kleine Test-App.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-misc"></span>
+              <span>Sonstiges</span>
+            </div>
+            <div class="card-emoji">🧪</div>
+          </div>
+          <h2 class="card-title">Klick</h2>
+          <p class="card-desc">Kleine Test-App zum Spielen & Ausprobieren.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Klick/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Klick" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Klick/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Klick" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Kasap -->
-      <div class="card">
+      <article class="card" data-category="sonstiges">
         <div>
-          <div class="card-tag">Sonstiges</div>
-          <div class="card-title">Kasap</div>
-          <div class="card-desc">Metzger-Projekt.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-misc"></span>
+              <span>Sonstiges</span>
+            </div>
+            <div class="card-emoji">🥩</div>
+          </div>
+          <h2 class="card-title">Kasap</h2>
+          <p class="card-desc">Metzger-/Shop-Experiment, ideal zum Testen von Layouts.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Kasap/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Kasap" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Kasap/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Kasap" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Sommerferien -->
-      <div class="card">
+      <article class="card" data-category="fussball">
         <div>
-          <div class="card-tag">Fußball</div>
-          <div class="card-title">Übung Sommerferien</div>
-          <div class="card-desc">Training Sommer.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-foot"></span>
+              <span>Fußball</span>
+            </div>
+            <div class="card-emoji">☀️</div>
+          </div>
+          <h2 class="card-title">Übung Sommerferien</h2>
+          <p class="card-desc">Ferien-Trainingsplan mit Läufen, Technik & Kraft.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Uebung-Sommerferien/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Uebung-Sommerferien" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Uebung-Sommerferien/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Uebung-Sommerferien" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
       <!-- Winterferien -->
-      <div class="card">
+      <article class="card" data-category="fussball">
         <div>
-          <div class="card-tag">Fußball</div>
-          <div class="card-title">Übung Winterferien</div>
-          <div class="card-desc">Training Winter.</div>
+          <div class="card-tag-row">
+            <div class="card-tag-pill">
+              <span class="tag-dot tag-foot"></span>
+              <span>Fußball</span>
+            </div>
+            <div class="card-emoji">❄️</div>
+          </div>
+          <h2 class="card-title">Übung Winterferien</h2>
+          <p class="card-desc">Winter-Programm mit Fokus auf Stabilität & Technik.</p>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://nzvdgzygrk-hub.github.io/Uebung-Winterferien/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/nzvdgzygrk-hub/Uebung-Winterferien" target="_blank">GitHub</a>
+          <a class="btn btn-primary" href="https://nzvdgzygrk-hub.github.io/Uebung-Winterferien/" target="_blank">
+            <span>🚀</span><span>App öffnen</span>
+          </a>
+          <a class="btn" href="https://github.com/nzvdgzygrk-hub/Uebung-Winterferien" target="_blank">
+            <span>👀</span><span>Code ansehen</span>
+          </a>
         </div>
-      </div>
+      </article>
 
-    </div>
+    </section>
 
-    <p class="footer">
-      GitHub-User: <b>nzvdgzygrk-hub</b> – alle Links jetzt mit richtiger Schreibweise.
-    </p>
-  </div>
+    <footer class="footer">
+      <span>Tip: Du kannst dieses Dashboard als Favorit auf dem Handy-Homescreen speichern.</span>
+      <span>Basis-URL: <code>https://nzvdgzygrk-hub.github.io/Dashboard/</code></span>
+    </footer>
+  </main>
+
+  <script>
+    // Einfacher Kategorie-Filter
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".card");
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        cards.forEach(card => {
+          const cat = card.dataset.category;
+          const show = filter === "all" || cat === filter;
+          card.style.display = show ? "flex" : "none";
+        });
+      });
+    });
+  </script>
 </body>
 </html>
