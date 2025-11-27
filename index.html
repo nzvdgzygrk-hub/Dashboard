@@ -5,11 +5,7 @@
   <title>Fatihs Mini App Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -22,21 +18,9 @@
       padding: 30px 10px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1100px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .subtitle {
-      color: #9ca3af;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
+    .container { width: 100%; max-width: 1100px; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    .subtitle { color: #9ca3af; margin-bottom: 1.5rem; font-size: 0.95rem; }
 
     .grid {
       display: grid;
@@ -53,7 +37,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+      transition: 0.14s ease;
     }
 
     .card:hover {
@@ -62,14 +46,8 @@
       border-color: #3b82f6;
     }
 
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
+    .card-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.25rem; }
     .card-tag {
-      display: inline-block;
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -77,19 +55,9 @@
       margin-bottom: 0.75rem;
     }
 
-    .card-desc {
-      font-size: 0.85rem;
-      color: #9ca3af;
-      margin-bottom: 1.1rem;
-      min-height: 36px;
-    }
+    .card-desc { font-size: 0.85rem; color: #9ca3af; margin-bottom: 1.1rem; min-height: 36px; }
 
-    .btn-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: auto;
-    }
+    .btn-row { display: flex; justify-content: space-between; gap: 8px; margin-top: auto; }
 
     .btn {
       flex: 1;
@@ -104,8 +72,7 @@
       color: #e5e7eb;
       text-decoration: none;
       cursor: pointer;
-      transition: background 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
-      text-align: center;
+      transition: 0.12s ease;
       white-space: nowrap;
     }
 
@@ -115,21 +82,12 @@
       transform: translateY(-1px);
     }
 
-    .btn-secondary {
-      background: transparent;
-    }
+    .btn-secondary { background: transparent; }
 
     .footer {
       margin-top: 24px;
       font-size: 0.75rem;
       color: #6b7280;
-    }
-
-    .footer code {
-      background: #020617;
-      padding: 2px 4px;
-      border-radius: 4px;
-      font-size: 0.7rem;
     }
   </style>
 </head>
@@ -139,16 +97,17 @@
     <p class="subtitle">Klick auf eine Kachel, um deine HTML-Apps zu öffnen.</p>
 
     <div class="grid">
+
       <!-- Ausgaben -->
       <div class="card">
         <div>
           <div class="card-tag">Finanzen</div>
           <div class="card-title">Ausgaben</div>
-          <div class="card-desc">Übersicht über Einnahmen & Ausgaben.</div>
+          <div class="card-desc">Einnahmen & Ausgaben Übersicht.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Ausgaben/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Ausgaben" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Ausgaben" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Ausgaben" target="_blank">GitHub</a>
         </div>
       </div>
 
@@ -157,11 +116,11 @@
         <div>
           <div class="card-tag">Gesundheit</div>
           <div class="card-title">Medikamentenplan Anne</div>
-          <div class="card-desc">Strukturierter Plan für Medikamente.</div>
+          <div class="card-desc">Plan für Medikamente.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Medikamentenplan-Anne/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Medikamentenplan-Anne" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Medikamentenplan-Anne" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Medikamentenplan-Anne" target="_blank">GitHub</a>
         </div>
       </div>
 
@@ -170,11 +129,11 @@
         <div>
           <div class="card-tag">Religion</div>
           <div class="card-title">Takvim</div>
-          <div class="card-desc">Namaz- und Ramazan-Zeiten.</div>
+          <div class="card-desc">Namaz & Ramadan Zeiten.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Takvim/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Takvim" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Takvim" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Takvim" target="_blank">GitHub</a>
         </div>
       </div>
 
@@ -183,11 +142,11 @@
         <div>
           <div class="card-tag">Auto</div>
           <div class="card-title">Fahrzeugmanager</div>
-          <div class="card-desc">Verwaltung von Fahrzeugdaten.</div>
+          <div class="card-desc">Alles rund ums Auto.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Fahrzeugmanager/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Fahrzeugmanager" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Fahrzeugmanager" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Fahrzeugmanager" target="_blank">GitHub</a>
         </div>
       </div>
 
@@ -196,11 +155,11 @@
         <div>
           <div class="card-tag">Auto</div>
           <div class="card-title">Fahrzeugmanager VW</div>
-          <div class="card-desc">Variante speziell für VW.</div>
+          <div class="card-desc">VW-Version.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Fahrzeugmanager-VW/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Fahrzeugmanager-VW" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Fahrzeugmanager-VW" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Fahrzeugmanager-VW" target="_blank">GitHub</a>
         </div>
       </div>
 
@@ -209,11 +168,11 @@
         <div>
           <div class="card-tag">Test</div>
           <div class="card-title">Klick</div>
-          <div class="card-desc">Kleine Klick-/Test-App.</div>
+          <div class="card-desc">Kleine Test-App.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Klick/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Klick" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Klick" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Klick" target="_blank">GitHub</a>
         </div>
       </div>
 
@@ -222,45 +181,60 @@
         <div>
           <div class="card-tag">Sonstiges</div>
           <div class="card-title">Kasap</div>
-          <div class="card-desc">Metzger-/Shop-Experiment.</div>
+          <div class="card-desc">Metzger-Projekt.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Kasap/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Kasap" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Kasap" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Kasap" target="_blank">GitHub</a>
         </div>
       </div>
 
-      <!-- Uebung-Sommerferien -->
+      <!-- Sommerferien -->
       <div class="card">
         <div>
           <div class="card-tag">Fußball</div>
           <div class="card-title">Übung Sommerferien</div>
-          <div class="card-desc">Trainingsplan für die Sommerferien.</div>
+          <div class="card-desc">Training Sommer.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Uebung-Sommerferien/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Uebung-Sommerferien" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Uebung-Sommerferien" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Uebung-Sommerferien" target="_blank">GitHub</a>
         </div>
       </div>
 
-      <!-- Uebung-Winterferien -->
+      <!-- Winterferien -->
       <div class="card">
         <div>
           <div class="card-tag">Fußball</div>
           <div class="card-title">Übung Winterferien</div>
-          <div class="card-desc">Trainingsplan für die Winterferien.</div>
+          <div class="card-desc">Training Winter.</div>
         </div>
         <div class="btn-row">
-          <a class="btn" href="https://DEINUSERNAME.github.io/Uebung-Winterferien/" target="_blank">Öffnen</a>
-          <a class="btn btn-secondary" href="https://github.com/DEINUSERNAME/Uebung-Winterferien" target="_blank">GitHub</a>
+          <a class="btn btn-open" data-repo="Uebung-Winterferien" target="_blank">Öffnen</a>
+          <a class="btn btn-secondary btn-github" data-repo="Uebung-Winterferien" target="_blank">GitHub</a>
         </div>
       </div>
+
     </div>
 
     <p class="footer">
-      Hinweis: Ersetze <code>DEINUSERNAME</code> oben durch deinen GitHub-Namen,
-      z.&nbsp;B. <code>https://deinname.github.io/Ausgaben/</code>.
+      Dashboard wurde automatisch an deinen GitHub-Namen angepasst: <b>nzdvgzygrk-hub</b>
     </p>
   </div>
+
+  <script>
+    const GITHUB_USER = "nzdvgzygrk-hub";
+
+    document.querySelectorAll(".btn-open").forEach(btn => {
+      const repo = btn.dataset.repo;
+      btn.href = `https://${GITHUB_USER}.github.io/${repo}/`;
+    });
+
+    document.querySelectorAll(".btn-github").forEach(btn => {
+      const repo = btn.dataset.repo;
+      btn.href = `https://github.com/${GITHUB_USER}/${repo}`;
+    });
+  </script>
+
 </body>
 </html>
