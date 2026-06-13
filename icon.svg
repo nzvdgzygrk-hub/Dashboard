@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#08111f"/>
+  <circle cx="256" cy="246" r="202" fill="#111827" stroke="#22c55e" stroke-width="18"/>
+  <text x="256" y="292" text-anchor="middle" font-size="188" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🧰</text>
+  <text x="256" y="430" text-anchor="middle" font-size="48" font-weight="800" fill="#f4f7fb" font-family="Arial, Helvetica, sans-serif">APPS</text>
+</svg>
