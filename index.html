@@ -4,333 +4,214 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fatihs App Dashboard</title>
-
-  <!-- STYLE -->
+  <meta name="theme-color" content="#08111f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Apps">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 <main class="shell">
-
-  <!-- HEADER -->
   <header class="header">
-    <div class="title-block">
-      <h1>Fatihs App-Dashboard</h1>
-      <p class="subtitle">
-        Alle deine Tools, Rechnungen, Trainings-Apps & Infos an einem Ort.
-      </p>
-
-      <div class="badge-user">
-        <span class="badge-dot"></span>
-        <span>@nzvdgzygrk-hub</span>
+    <div class="title-line">
+      <div class="main-emoji">🧰</div>
+      <div>
+        <h1>Fatihs App-Dashboard</h1>
+        <p class="subtitle">Deine allgemeinen Tools sauber sortiert. Fußball liegt extra im Fußball-Dashboard.</p>
       </div>
     </div>
-
     <div class="quick-info">
-      <div class="chip">⚡ Direkter Zugriff</div>
-      <div class="chip">📱 Perfekt für iPhone</div>
-      <div class="chip">💾 Lokale Geschwindigkeit</div>
+      <div class="chip">📱 iPhone Home-Bildschirm</div>
+      <div class="chip">🧰 Allgemeine Apps</div>
+      <div class="chip">⚡ Schnellzugriff</div>
     </div>
   </header>
 
-  <!-- FILTER -->
   <section class="filter-row">
-    <button class="filter-btn active" data-filter="all">
-      <span class="filter-dot dot-all"></span> Alle
-    </button>
-    <button class="filter-btn" data-filter="business">
-      <span class="filter-dot dot-business"></span> Business
-    </button>
-    <button class="filter-btn" data-filter="finance">
-      <span class="filter-dot dot-finance"></span> Finanzen
-    </button>
-    <button class="filter-btn" data-filter="health">
-      <span class="filter-dot dot-health"></span> Gesundheit
-    </button>
-    <button class="filter-btn" data-filter="religion">
-      <span class="filter-dot dot-religion"></span> Religion
-    </button>
-    <button class="filter-btn" data-filter="auto">
-      <span class="filter-dot dot-auto"></span> Auto
-    </button>
-    <button class="filter-btn" data-filter="football">
-      <span class="filter-dot dot-football"></span> Fußball
-    </button>
-    <button class="filter-btn" data-filter="travel">
-      <span class="filter-dot dot-travel"></span> Reisen
-    </button>
-    <button class="filter-btn" data-filter="other">
-      <span class="filter-dot dot-other"></span> Sonstiges
-    </button>
+    <button class="filter-btn active" data-filter="all"><span class="filter-dot dot-all"></span>Alle</button>
+    <button class="filter-btn" data-filter="work"><span class="filter-dot dot-work"></span>Arbeit</button>
+    <button class="filter-btn" data-filter="finance"><span class="filter-dot dot-finance"></span>Finanzen</button>
+    <button class="filter-btn" data-filter="auto"><span class="filter-dot dot-auto"></span>Auto</button>
+    <button class="filter-btn" data-filter="religion"><span class="filter-dot dot-religion"></span>Religion</button>
+    <button class="filter-btn" data-filter="health"><span class="filter-dot dot-health"></span>Gesundheit</button>
+    <button class="filter-btn" data-filter="business"><span class="filter-dot dot-business"></span>Business</button>
+    <button class="filter-btn" data-filter="home"><span class="filter-dot dot-home"></span>Haushalt</button>
+    <button class="filter-btn" data-filter="travel"><span class="filter-dot dot-travel"></span>Reisen</button>
+    <button class="filter-btn" data-filter="other"><span class="filter-dot dot-other"></span>Sonstiges</button>
   </section>
 
-  <!-- GRID / APP-KARTEN -->
   <section class="grid">
 
-    <!-- BUSINESS: Dashboard -->
-    <article class="card" data-category="business">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#60a5fa" d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-      </svg>
-      <h2 class="card-title">Dashboard</h2>
-      <p class="card-desc">Zentrale Übersicht all deiner Projekte.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Dashboard/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Dashboard" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="work">
+      <div class="app-emoji">⏱️</div>
+      <h2 class="card-title">42h Wochen-Tracker</h2>
+      <p class="card-desc">Arbeitszeit, Dezimalzeit und Wochenübersicht.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/42h/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/42h" target="_blank">Code</a></div>
     </article>
 
-    <!-- BUSINESS: Business Vorlagen Paket -->
-    <article class="card" data-category="business">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#818cf8" d="M4 4h9l7 7v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
-      </svg>
-      <h2 class="card-title">Business-Vorlagen</h2>
-      <p class="card-desc">Rechnung, Angebot, Lieferschein – alles in einem Paket.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Business-Vorlagen-Paket/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Business-Vorlagen-Paket" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="work">
+      <div class="app-emoji">🏭</div>
+      <h2 class="card-title">Fat43wsw</h2>
+      <p class="card-desc">Arbeits-/WSW-Tool aus deinem GitHub.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Fat43wsw/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Fat43wsw" target="_blank">Code</a></div>
     </article>
 
-    <!-- BUSINESS: Ahmet Business -->
-    <article class="card" data-category="business">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#4ade80" d="M3 5h18v4H3zm0 6h11v8H3zM16 11h5v8h-5z"/>
-      </svg>
-      <h2 class="card-title">Ahmet Business</h2>
-      <p class="card-desc">Business-Tools, Rechnungen & Organisation für Ahmet.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Ahmet_Business/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Ahmet_Business" target="_blank">Code</a>
-      </div>
-    </article>
-
-    <!-- BUSINESS: Klick -->
-    <article class="card" data-category="business">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" fill="#38bdf8"/>
-      </svg>
-      <h2 class="card-title">Klick</h2>
-      <p class="card-desc">Einfache Test-App für Zähler & Spielereien.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Klick/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Klick" target="_blank">Code</a>
-      </div>
-    </article>
-
-    <!-- BUSINESS: Briefetikett (NEU) -->
-    <article class="card" data-category="business">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <rect x="3" y="5" width="18" height="14" rx="2" fill="#f472b6"/>
-      </svg>
-      <h2 class="card-title">Briefetikett</h2>
-      <p class="card-desc">Etiketten-Generator & PDF Druck.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Briefetikett/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Briefetikett" target="_blank">Code</a>
-      </div>
-    </article>
-
-    <!-- FINANCE: Ausgaben -->
     <article class="card" data-category="finance">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#22c55e" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-      </svg>
-      <h2 class="card-title">Ausgaben_</h2>
-      <p class="card-desc">Einnahmen & Ausgaben sauber verwalten.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Ausgaben_/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Ausgaben_" target="_blank">Code</a>
-      </div>
+      <div class="app-emoji">💶</div>
+      <h2 class="card-title">Ausgaben</h2>
+      <p class="card-desc">Einnahmen und Ausgaben verwalten.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Ausgaben_/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Ausgaben_" target="_blank">Code</a></div>
     </article>
 
-    <!-- HEALTH: Medikamentenplan -->
-    <article class="card" data-category="health">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <rect x="3" y="3" width="18" height="18" rx="4" fill="#fb923c"/>
-      </svg>
-      <h2 class="card-title">Medikamentenplan Anne</h2>
-      <p class="card-desc">Tabletten & Zeiten strukturiert dokumentieren.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Medikamentenplan-Anne/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Medikamentenplan-Anne" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="finance">
+      <div class="app-emoji">🧮</div>
+      <h2 class="card-title">Rechner</h2>
+      <p class="card-desc">Rechen-Tool und schnelle Berechnungen.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Rechner-/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Rechner-" target="_blank">Code</a></div>
     </article>
 
-    <!-- RELIGION: Takvim -->
-    <article class="card" data-category="religion">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#38bdf8" d="M12 2 2 7v13h20V7z"/>
-      </svg>
-      <h2 class="card-title">Takvim</h2>
-      <p class="card-desc">Gebetszeiten & Ramadan für Velbert.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Takvim/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Takvim" target="_blank">Code</a>
-      </div>
-    </article>
-
-    <!-- AUTO: Fahrzeugmanager -->
     <article class="card" data-category="auto">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#a855f7" d="M5 16h14l1-6H4zM6 10l1-2h10l1 2z"/>
-      </svg>
+      <div class="app-emoji">🚗</div>
       <h2 class="card-title">Fahrzeugmanager</h2>
-      <p class="card-desc">TÜV, Kosten, Tankbuch & Wartungen.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager" target="_blank">Code</a>
-      </div>
+      <p class="card-desc">TÜV, Kosten, Tankbuch und Wartung.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager" target="_blank">Code</a></div>
     </article>
 
-    <!-- AUTO: Fahrzeugmanager VW -->
     <article class="card" data-category="auto">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" fill="#c084fc"/>
-      </svg>
+      <div class="app-emoji">🚙</div>
       <h2 class="card-title">Fahrzeugmanager VW</h2>
-      <p class="card-desc">Extra-Version für VW-Fahrzeuge.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager-VW/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager-VW" target="_blank">Code</a>
-      </div>
+      <p class="card-desc">Extra Fahrzeugmanager-Version für VW.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Fahrzeugmanager-VW/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Fahrzeugmanager-VW" target="_blank">Code</a></div>
     </article>
 
-    <!-- AUTO: Rechnung Autoverwertung (NEU) -->
     <article class="card" data-category="auto">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#f87171" d="M3 13h18v6H3zM5 9h14l2 4H3z"/>
-      </svg>
+      <div class="app-emoji">🧾</div>
       <h2 class="card-title">Rechnung Autoverwertung</h2>
-      <p class="card-desc">Spezielles Rechnungs-Tool für Autoverwertung.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Rechnung_Autoverwertung/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Rechnung_Autoverwertung" target="_blank">Code</a>
-      </div>
+      <p class="card-desc">Rechnungs-Tool für Autoverwertung.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Rechnung_Autoverwertung/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Rechnung_Autoverwertung" target="_blank">Code</a></div>
     </article>
 
-    <!-- FOOTBALL: Trainingsplan Generator -->
-    <article class="card" data-category="football">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" fill="#facc15"/>
-      </svg>
-      <h2 class="card-title">Trainingsplan-Generator</h2>
-      <p class="card-desc">Automatische Erstellung von U12-Plänen.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Trainingsplan-Generator/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Trainingsplan-Generator" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="religion">
+      <div class="app-emoji">🕌</div>
+      <h2 class="card-title">Takvim</h2>
+      <p class="card-desc">Gebetszeiten und Ramadan für Velbert.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Takvim/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Takvim" target="_blank">Code</a></div>
     </article>
 
-    <!-- FOOTBALL: Namensgenerator (NEU, richtige URL) -->
-    <article class="card" data-category="football">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" fill="#4ade80"/>
-      </svg>
-      <h2 class="card-title">Namensgenerator</h2>
-      <p class="card-desc">Team-Zufall, Spielerlisten & Rollen.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Namensgenerator/" target="_blank">App öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Namensgenerator" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="health">
+      <div class="app-emoji">💊</div>
+      <h2 class="card-title">Medikamentenplan Anne</h2>
+      <p class="card-desc">Medikamente und Zeiten strukturiert dokumentieren.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Medikamentenplan-Anne/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Medikamentenplan-Anne" target="_blank">Code</a></div>
     </article>
 
-    <!-- FOOTBALL: Sommerferien -->
-    <article class="card" data-category="football">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#fde047" d="M12 2 2 7l10 5 10-5z"/>
-      </svg>
-      <h2 class="card-title">Übung Sommerferien</h2>
-      <p class="card-desc">Läufe, Technik, Kraft – 6-Wochen-Plan.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Uebung-Sommerferien/" target="_blank">Öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Uebung-Sommerferien" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="business">
+      <div class="app-emoji">📄</div>
+      <h2 class="card-title">Business-Vorlagen</h2>
+      <p class="card-desc">Rechnung, Angebot und Lieferschein.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Business-Vorlagen-Paket/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Business-Vorlagen-Paket" target="_blank">Code</a></div>
     </article>
 
-    <!-- FOOTBALL: Winterferien -->
-    <article class="card" data-category="football">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#93c5fd" d="M3 12h18M12 3v18"/>
-      </svg>
-      <h2 class="card-title">Übung Winterferien</h2>
-      <p class="card-desc">Stabilität, Ausdauer & Technik.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Uebung-Winterferien/" target="_blank">Öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Uebung-Winterferien" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="business">
+      <div class="app-emoji">🏢</div>
+      <h2 class="card-title">Ahmet Business</h2>
+      <p class="card-desc">Business-Tools und Organisation für Ahmet.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Ahmet_Business/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Ahmet_Business" target="_blank">Code</a></div>
     </article>
 
-    <!-- FOOTBALL: Waschliste -->
-    <article class="card" data-category="football">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" fill="#67e8f9"/>
-      </svg>
-      <h2 class="card-title">SSVg-Waschliste</h2>
-      <p class="card-desc">Wer wäscht wann? Übersicht für Eltern / Spieler.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/SSVg-Waschliste/" target="_blank">Öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/SSVg-Waschliste" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="business">
+      <div class="app-emoji">🏷️</div>
+      <h2 class="card-title">Briefetikett</h2>
+      <p class="card-desc">Etiketten-Generator und Druckvorlage.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Briefetikett/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Briefetikett" target="_blank">Code</a></div>
     </article>
 
-    <!-- TRAVEL: Almanya Türkei -->
+    <article class="card" data-category="business">
+      <div class="app-emoji">📁</div>
+      <h2 class="card-title">Ordner Schmal</h2>
+      <p class="card-desc">Schmale Ordnerrücken und Etiketten.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Ordner_Schmal-7/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Ordner_Schmal-7" target="_blank">Code</a></div>
+    </article>
+
+    <article class="card" data-category="business">
+      <div class="app-emoji">🗂️</div>
+      <h2 class="card-title">Ordner Breit</h2>
+      <p class="card-desc">Breite Ordnerrücken und Etiketten.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Ordner_Breit-_4/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Ordner_Breit-_4" target="_blank">Code</a></div>
+    </article>
+
+    <article class="card" data-category="home">
+      <div class="app-emoji">🏊</div>
+      <h2 class="card-title">Schwimmbad</h2>
+      <p class="card-desc">Checkliste und Vorbereitung fürs Schwimmbad.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Schwimmbad/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Schwimmbad" target="_blank">Code</a></div>
+    </article>
+
+    <article class="card" data-category="home">
+      <div class="app-emoji">🏖️</div>
+      <h2 class="card-title">Pool</h2>
+      <p class="card-desc">Pool-Tool und Übersicht.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Pool/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Pool" target="_blank">Code</a></div>
+    </article>
+
+    <article class="card" data-category="home">
+      <div class="app-emoji">📦</div>
+      <h2 class="card-title">Lager 5.0</h2>
+      <p class="card-desc">Lagerplatz-Verwaltung und Artikelübersicht.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Lager5.0/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Lager5.0" target="_blank">Code</a></div>
+    </article>
+
     <article class="card" data-category="travel">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#60a5fa" d="M2 6l10 6 10-6-10-4z"/>
-      </svg>
+      <div class="app-emoji">🇩🇪</div>
       <h2 class="card-title">Almanya ⇄ Türkiye</h2>
-      <p class="card-desc">Reiserouten, Tankpreise & Zollinfos.</p>
-
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Almanya-T-rkiye-yolculuk/" target="_blank">Öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Almanya-T-rkiye-yolculuk" target="_blank">Code</a>
-      </div>
+      <p class="card-desc">Reiserouten, Tankpreise und Zollinfos.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Almanya-T-rkiye-yolculuk/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Almanya-T-rkiye-yolculuk" target="_blank">Code</a></div>
     </article>
 
-    <!-- OTHER: Kasap -->
     <article class="card" data-category="other">
-      <svg class="card-icon" viewBox="0 0 24 24">
-        <path fill="#fb7185" d="M4 4h16v16H4z"/>
-      </svg>
+      <div class="app-emoji">🥩</div>
       <h2 class="card-title">Kasap</h2>
-      <p class="card-desc">Shop-/Layout-Test für Fleischwaren.</p>
+      <p class="card-desc">Kasap-/Bestelllisten-Tool.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Kasap/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Kasap" target="_blank">Code</a></div>
+    </article>
 
-      <div class="btn-row">
-        <a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Kasap/" target="_blank">Öffnen</a>
-        <a class="btn" href="https://github.com/nzvdgzygrk-hub/Kasap" target="_blank">Code</a>
-      </div>
+    <article class="card" data-category="other">
+      <div class="app-emoji">🍗</div>
+      <h2 class="card-title">Kasap 2</h2>
+      <p class="card-desc">Zweite Kasap-Version.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Kasap_2/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Kasap_2" target="_blank">Code</a></div>
+    </article>
+
+    <article class="card" data-category="other">
+      <div class="app-emoji">🔘</div>
+      <h2 class="card-title">Klick</h2>
+      <p class="card-desc">Kleine Test-App für Klicks und Funktionen.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Klick/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Klick" target="_blank">Code</a></div>
+    </article>
+
+    <article class="card" data-category="other">
+      <div class="app-emoji">🏦</div>
+      <h2 class="card-title">Bnk</h2>
+      <p class="card-desc">Weitere App aus deinem GitHub.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/Bnk/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/Bnk" target="_blank">Code</a></div>
+    </article>
+
+    <article class="card" data-category="other">
+      <div class="app-emoji">🛠️</div>
+      <h2 class="card-title">strgawas</h2>
+      <p class="card-desc">Zusätzliches Tool aus deinem GitHub.</p>
+      <div class="btn-row"><a class="btn-primary btn" href="https://nzvdgzygrk-hub.github.io/strgawas/" target="_blank">Öffnen</a><a class="btn" href="https://github.com/nzvdgzygrk-hub/strgawas" target="_blank">Code</a></div>
     </article>
 
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <span>Als Favorit speichern → Homescreen App-Gefühl.</span>
-    <span>Base URL: <code>https://nzvdgzygrk-hub.github.io/Dashboard/</code></span>
+    <span>Fußball-Tools sind bewusst im separaten Fußball-Dashboard.</span>
+    <span><code>https://nzvdgzygrk-hub.github.io/Dashboard/</code></span>
   </footer>
-
 </main>
-
-<!-- SCRIPT -->
 <script src="script.js"></script>
-
 </body>
 </html>
